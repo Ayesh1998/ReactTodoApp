@@ -27,11 +27,8 @@ const Main = () => {
   };
 
   const editItem = edItem => {
-    console.log("editItem in main " + edItem);
     const indexOfItem = items.findIndex(item => item.id == edItem.id);
     var filtered = items.filter(item => item.id != edItem.id);
-    console.log("indexOfItem in main " + indexOfItem);
-    console.log("filtered in main " + filtered);
     var arr = [...filtered];
     arr.splice(indexOfItem, 0, edItem);
     setItems([...arr]);
@@ -42,7 +39,6 @@ const Main = () => {
       className="container"
       style={{
         borderRadius: "5px",
-        // boxShadow: "10px 10px grey",
         backgroundColor: "#d9d1d0",
         marginTop: "111px",
         padding: "69px"

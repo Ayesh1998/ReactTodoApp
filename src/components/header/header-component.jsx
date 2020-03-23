@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 
 import "./header-styles.scss";
+import { FaClipboardList } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -12,11 +13,14 @@ const Header = () => {
             TODO APP
           </Card.Title>
 
-          <Card.Text>
-            Duis dolore consectetur id adipisicing Lorem laborum magna. Nisi
-            dolore excepteur reprehenderit nisi qui. Voluptate qui sunt est
-            culpa eu sint mollit nisi duis deserunt nisi. Labore fugiat do nisi
-            quis ad.
+          <Card.Text style={{ textAlign: "center" }}>
+            <FaClipboardList
+              style={{ marginRight: "12px", marginBottom: "5px" }}
+            />{" "}
+            MY TODO LIST FOR TODAY{" "}
+            <FaClipboardList
+              style={{ marginLeft: "12px", marginBottom: "5px" }}
+            />
           </Card.Text>
         </Card.Body>
       </Card>

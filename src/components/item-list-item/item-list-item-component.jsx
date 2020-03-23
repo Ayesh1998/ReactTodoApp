@@ -26,7 +26,6 @@ const ItemListItem = ({
     setdescription("");
   };
 
-  // ({ description, deleteItem, editItem })
   return (
     <div className="itemListItemMain" style={{ marginTop: "2px" }}>
       <Row>
