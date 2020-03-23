@@ -29,7 +29,10 @@ const AddItem = ({ addItems }) => {
             Add Item
           </Form.Label>
           <Form.Control
-            style={{ height: "calc(1.2em + .75rem + 2px)" }}
+            style={{
+              height: "calc(1.2em + .75rem + 2px)",
+              borderColor: "#0062cc"
+            }}
             type="text"
             value={description}
             placeholder="Add Item"
@@ -41,7 +44,7 @@ const AddItem = ({ addItems }) => {
             Please enter a todo item
           </p>
         ) : null}
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" style={{ width: "92px" }}>
           Add
         </Button>
       </Form>
