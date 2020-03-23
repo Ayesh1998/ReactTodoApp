@@ -1,3 +1,9 @@
+@import "../../sass/colors.scss";
+
+.itemListSpan {
+  color: $headingsTopicColor;
+}
+
 .dontHaveItems {
   margin-top: 2%;
   background-color: white;

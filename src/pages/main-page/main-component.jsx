@@ -4,6 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import Header from "../../components/header/header-component";
 import ItemList from "../../components/item-list/item-list-component";
 import AddItem from "../../components/additem/additem-component";
+import "./main-styles.scss";
 
 const Main = () => {
   const [items, setItems] = useState([]);
@@ -40,11 +41,21 @@ const Main = () => {
     <div
       className="container"
       style={{
-        backgroundColor: "rgba(155, 147, 147, 0.678)",
-        marginTop: "111px"
+        borderRadius: "5px",
+        // boxShadow: "10px 10px grey",
+        backgroundColor: "#d9d1d0",
+        marginTop: "111px",
+        padding: "69px"
       }}
     >
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          backgroundColor: "#f5eeed",
+          borderRadius: "4px",
+          boxShadow: "10px 10px #d9d1d0"
+        }}
+      >
         <Row
           className="container"
           style={{

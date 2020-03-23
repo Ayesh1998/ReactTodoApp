@@ -7,6 +7,7 @@ const ItemList = ({ deleteItems, items, findItem, editItem }) => {
   return (
     <div className="itemListMain">
       <span
+        className="itemListSpan"
         style={{ fontWeight: "700", marginLeft: "-13px", fontSize: "17px" }}
       >
         Item List
