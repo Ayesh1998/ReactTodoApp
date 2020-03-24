@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { FaTrashAlt, FaPen, FaSignInAlt } from "react-icons/fa";
+import {
+  FaTrashAlt,
+  FaPen,
+  FaSignInAlt,
+  FaCheckCircle,
+  FaRegCheckCircle,
+  FaCheckDouble
+} from "react-icons/fa";
 import { Row, Col, Form, Button } from "react-bootstrap";
 
 import "./item-list-item-styles.scss";
 
 const ItemListItem = ({
-  items: { description },
+  items: { description, completed },
   id,
   deleteItems,
-  editItem
+  editItem,
+  completeItem,
+  items
 }) => {
   const [edit, setEdit] = useState(false);
   const [descriptions, setdescription] = useState("");
@@ -19,7 +28,7 @@ const ItemListItem = ({
 
   const onSubmitHandler = eve => {
     eve.preventDefault();
-    var itemss = { description: descriptions, id: id };
+    var itemss = { description: descriptions, id: id, completeItem: false };
     editItem(itemss);
     console.log("itemssss " + itemss);
     setEdit(false);
@@ -57,21 +66,60 @@ const ItemListItem = ({
             </Form>
           ) : (
             <div>
-              <span className="itemDescription">{description}</span>
-              <div className=" float-right">
-                <FaPen
-                  style={{ marginRight: "13px" }}
-                  onClick={() => {
-                    setEdit(true);
-                    setdescription(description);
-                  }}
-                />
+              {completed ? (
+                <div>
+                  {" "}
+                  <span className="itemDescription">{description}</span>{" "}
+                  <div className=" float-right">
+                    <span
+                      style={{
+                        fontSize: "12px",
+                        marginRight: "13px",
+                        color: "#0062cc"
+                      }}
+                    >
+                      <i> completed </i>
+                    </span>
+                    <FaCheckDouble
+                      style={{
+                        marginRight: "13px",
+                        color: "#0062cc",
+                        fontStyle: "italic"
+                      }}
+                    />
+                    <FaTrashAlt
+                      style={{ marginRight: "13px" }}
+                      onClick={() => deleteItems(id)}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <span className="itemDescription">{description}</span>
 
-                <FaTrashAlt
-                  style={{ marginRight: "13px" }}
-                  onClick={() => deleteItems(id)}
-                />
-              </div>
+                  <div className=" float-right">
+                    <FaRegCheckCircle
+                      style={{ marginRight: "13px", color: "#0062cc" }}
+                      onClick={() => {
+                        completeItem(description, id);
+                      }}
+                    />
+
+                    <FaPen
+                      style={{ marginRight: "13px" }}
+                      onClick={() => {
+                        setEdit(true);
+                        setdescription(description);
+                      }}
+                    />
+
+                    <FaTrashAlt
+                      style={{ marginRight: "13px", color: "red" }}
+                      onClick={() => deleteItems(id)}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </Col>

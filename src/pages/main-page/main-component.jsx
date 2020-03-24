@@ -10,25 +10,36 @@ const Main = () => {
   const [items, setItems] = useState([]);
 
   const addItems = description => {
-    var item = { description: description, id: nextId() };
+    var item = { description: description, id: nextId(), completed: false };
     var itemss = [item, ...items];
     setItems(itemss);
   };
 
+  const completeItem = (description, id) => {
+    var filtered = items.filter(item => item.id !== id);
+    var completeddItem = {
+      description: description,
+      id: nextId(),
+      completed: true
+    };
+    var arr = [...filtered, completeddItem];
+    setItems([...arr]);
+  };
+
   const deleteItems = key => {
-    var filtered = items.filter(item => item.id != key);
+    var filtered = items.filter(item => item.id !== key);
     setItems(filtered);
   };
 
   const findItem = id => {
-    const item = items.find(item => item.id == id);
-    const indexOfItem = items.findIndex(item => item.id == id);
+    const item = items.find(item => item.id === id);
+    const indexOfItem = items.findIndex(item => item.id === id);
     return { item: item, index: indexOfItem };
   };
 
   const editItem = edItem => {
-    const indexOfItem = items.findIndex(item => item.id == edItem.id);
-    var filtered = items.filter(item => item.id != edItem.id);
+    const indexOfItem = items.findIndex(item => item.id === edItem.id);
+    var filtered = items.filter(item => item.id !== edItem.id);
     var arr = [...filtered];
     arr.splice(indexOfItem, 0, edItem);
     setItems([...arr]);
@@ -74,6 +85,7 @@ const Main = () => {
               deleteItems={deleteItems}
               items={items}
               editItem={editItem}
+              completeItem={completeItem}
             />
           </Col>
         </Row>

@@ -3,7 +3,7 @@ import ItemListItem from "../item-list-item/item-list-item-component";
 
 import "./item-list-styles.scss";
 
-const ItemList = ({ deleteItems, items, findItem, editItem }) => {
+const ItemList = ({ deleteItems, items, findItem, editItem, completeItem }) => {
   return (
     <div className="itemListMain">
       <span
@@ -23,6 +23,7 @@ const ItemList = ({ deleteItems, items, findItem, editItem }) => {
               deleteItems={deleteItems}
               findItem={findItem}
               editItem={editItem}
+              completeItem={completeItem}
             />
           )
 
