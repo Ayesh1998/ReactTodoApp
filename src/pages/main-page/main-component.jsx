@@ -51,8 +51,8 @@ const Main = () => {
       style={{
         borderRadius: "5px",
         backgroundColor: "#d9d1d0",
-        marginTop: "111px",
-        padding: "69px"
+        marginTop: "5%",
+        padding: "5%"
       }}
     >
       <div
