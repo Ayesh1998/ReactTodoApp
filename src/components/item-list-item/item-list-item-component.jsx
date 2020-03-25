@@ -86,7 +86,12 @@ const ItemListItem = ({
               {completed ? (
                 <div>
                   {" "}
-                  <span className="itemDescription">{description}</span>{" "}
+                  <span
+                    className="itemDescription"
+                    style={{ textDecoration: "line-through" }}
+                  >
+                    {description}
+                  </span>{" "}
                   <div className=" float-right">
                     <span
                       style={{
